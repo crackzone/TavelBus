@@ -1,0 +1,173 @@
+import {
+  Bus,
+  CalendarClock,
+  ClipboardList,
+  House,
+  IndianRupee,
+  LayoutDashboard,
+  MapPinned,
+  Radio,
+  Route,
+  Search,
+  Settings,
+  Sparkles,
+  Ticket,
+  UserRound,
+} from 'lucide-react'
+import type { NavItem } from '../components/navigation/types.ts'
+
+export const passengerNav: readonly NavItem[] = [
+  {
+    label: 'Home',
+    shortLabel: 'Home',
+    to: '/passenger/dashboard',
+    icon: House,
+    isActive: (pathname) => pathname === '/passenger/dashboard',
+  },
+  {
+    label: 'Search Trips',
+    shortLabel: 'Search',
+    to: '/passenger/search',
+    icon: Search,
+    isActive: (pathname) => pathname === '/passenger/search' || pathname.startsWith('/passenger/trips/'),
+  },
+  {
+    label: 'My Bookings',
+    shortLabel: 'Tickets',
+    to: '/passenger/bookings',
+    icon: Ticket,
+    isActive: (pathname) => pathname === '/passenger/bookings' || /^\/passenger\/bookings\/[^/]+\/?$/.test(pathname),
+  },
+  {
+    label: 'Live Tracking',
+    shortLabel: 'Track',
+    to: '/passenger/bookings',
+    icon: Radio,
+    isActive: (pathname) => /^\/passenger\/bookings\/[^/]+\/tracking\/?$/.test(pathname),
+  },
+  {
+    label: 'AI Assistant',
+    shortLabel: 'Assist',
+    to: '/passenger/assistant',
+    icon: Sparkles,
+    isActive: (pathname) => pathname === '/passenger/assistant',
+  },
+  {
+    label: 'Profile',
+    shortLabel: 'Profile',
+    to: '/passenger/profile',
+    icon: UserRound,
+    isActive: (pathname) => pathname === '/passenger/profile',
+  },
+]
+
+export const driverNav: readonly NavItem[] = [
+  {
+    label: 'Dashboard',
+    shortLabel: 'Today',
+    to: '/driver/dashboard',
+    icon: LayoutDashboard,
+    isActive: (pathname) => pathname === '/driver/dashboard',
+  },
+  {
+    label: 'My Trips',
+    shortLabel: 'Trips',
+    to: '/driver/trips',
+    icon: CalendarClock,
+    isActive: (pathname) => pathname === '/driver/trips',
+  },
+  {
+    label: 'Active Trip',
+    shortLabel: 'Active',
+    to: '/driver/trips',
+    icon: Radio,
+    isActive: (pathname) => /^\/driver\/trips\/[^/]+\/active\/?$/.test(pathname),
+  },
+  {
+    label: 'Route',
+    shortLabel: 'Route',
+    to: '/driver/trips',
+    icon: Route,
+    isActive: (pathname) => /^\/driver\/trips\/[^/]+\/?$/.test(pathname),
+  },
+  {
+    label: 'Profile',
+    shortLabel: 'Profile',
+    to: '/driver/profile',
+    icon: UserRound,
+    isActive: (pathname) => pathname === '/driver/profile',
+  },
+]
+
+export const adminNav: readonly NavItem[] = [
+  {
+    label: 'Overview',
+    shortLabel: 'Overview',
+    to: '/admin',
+    icon: LayoutDashboard,
+    isActive: (pathname) => pathname === '/admin',
+  },
+  {
+    label: 'Fleet',
+    shortLabel: 'Fleet',
+    to: '/admin/fleet',
+    icon: Bus,
+    isActive: (pathname) => pathname === '/admin/fleet' || pathname.startsWith('/admin/fleet/'),
+  },
+  {
+    label: 'Routes',
+    shortLabel: 'Routes',
+    to: '/admin/routes',
+    icon: Route,
+    isActive: (pathname) => pathname === '/admin/routes' || pathname.startsWith('/admin/routes/'),
+  },
+  {
+    label: 'Trips',
+    shortLabel: 'Trips',
+    to: '/admin/trips',
+    icon: CalendarClock,
+    isActive: (pathname) => pathname === '/admin/trips' || /^\/admin\/trips\/[^/]+\/?$/.test(pathname),
+  },
+  {
+    label: 'Bookings',
+    shortLabel: 'Bookings',
+    to: '/admin/bookings',
+    icon: Ticket,
+    isActive: (pathname) => pathname === '/admin/bookings' || pathname.startsWith('/admin/bookings/'),
+  },
+  {
+    label: 'Live Tracking',
+    shortLabel: 'Tracking',
+    to: '/admin/live-tracking',
+    icon: MapPinned,
+    isActive: (pathname) => pathname === '/admin/live-tracking',
+  },
+  {
+    label: 'Revenue',
+    shortLabel: 'Revenue',
+    to: '/admin/revenue',
+    icon: IndianRupee,
+    isActive: (pathname) => pathname === '/admin/revenue',
+  },
+  {
+    label: 'Manifests',
+    shortLabel: 'Manifest',
+    to: '/admin/trips',
+    icon: ClipboardList,
+    isActive: (pathname) => /^\/admin\/trips\/[^/]+\/manifest\/?$/.test(pathname),
+  },
+  {
+    label: 'AI Assistant',
+    shortLabel: 'Assist',
+    to: '/admin/assistant',
+    icon: Sparkles,
+    isActive: (pathname) => pathname === '/admin/assistant',
+  },
+  {
+    label: 'Profile',
+    shortLabel: 'Profile',
+    to: '/admin/profile',
+    icon: Settings,
+    isActive: (pathname) => pathname === '/admin/profile',
+  },
+]
